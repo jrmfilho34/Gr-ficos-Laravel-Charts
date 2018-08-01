@@ -5,15 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Charts\SampleChart;
+use DB;
+use App\Produtos;
+
+
 
 class ChartsController extends Controller
 {
    public function chart(){
+     
+    
    	$chart = new SampleChart;
-   	$chart->dataset('Sample','line',[120,90]);
+   	$chart->dataset('Numero de acessos','bar',[120,90,150])
+   	      ->options(['borderColor'=>'#f9F000','borderWidth'=>'2','backgroundColor'=>
+   	      	[ "#ff6384","#36a2eb"]]);
+
+
+    
    	return view('chart',['chart'=>$chart]);
 
    }
+
 }
 
 
